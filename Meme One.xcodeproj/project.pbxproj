@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10182A9F1C72B1DF008E7758 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10182A9E1C72B1DF008E7758 /* Meme.swift */; };
 		108B2F8B1C6D35ED008431CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B2F8A1C6D35ED008431CE /* AppDelegate.swift */; };
 		108B2F8D1C6D35ED008431CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B2F8C1C6D35ED008431CE /* ViewController.swift */; };
 		108B2F901C6D35ED008431CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 108B2F8E1C6D35ED008431CE /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10182A9E1C72B1DF008E7758 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		108B2F871C6D35ED008431CE /* Meme One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		108B2F8A1C6D35ED008431CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		108B2F8C1C6D35ED008431CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				108B2F8A1C6D35ED008431CE /* AppDelegate.swift */,
 				108B2F8C1C6D35ED008431CE /* ViewController.swift */,
+				10182A9E1C72B1DF008E7758 /* Meme.swift */,
 				108B2F8E1C6D35ED008431CE /* Main.storyboard */,
 				108B2F911C6D35ED008431CE /* Assets.xcassets */,
 				108B2F931C6D35ED008431CE /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10182A9F1C72B1DF008E7758 /* Meme.swift in Sources */,
 				108B2F8D1C6D35ED008431CE /* ViewController.swift in Sources */,
 				108B2F8B1C6D35ED008431CE /* AppDelegate.swift in Sources */,
 			);
@@ -398,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Meme One/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kinectic.Meme-One";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Meme One/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kinectic.Meme-One";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +488,7 @@
 				108B2FB11C6D35ED008431CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		108B2FB21C6D35ED008431CE /* Build configuration list for PBXNativeTarget "Meme OneTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +497,7 @@
 				108B2FB41C6D35ED008431CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		108B2FB51C6D35ED008431CE /* Build configuration list for PBXNativeTarget "Meme OneUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +506,7 @@
 				108B2FB71C6D35ED008431CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
