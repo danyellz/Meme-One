@@ -29,6 +29,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName: Float(-1)
     ]
     
+    var memes: [Meme]{
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
+
     override func viewDidLoad() {
         
         self.redSlider.thumbTintColor = UIColor.clearColor()
@@ -199,7 +203,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func save() {
         //Create the meme
-        _ = Meme( topText:topTextField.text!, bottomText: bottomTextField.text!, image:imagePickerView.image!, memedImage:generateMemedImage())
+         let meme = Meme( topText:topTextField.text!, bottomText: bottomTextField.text!, image:imagePickerView.image!, memedImage:generateMemedImage())
+        
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     @IBAction func shareMemeActivity(sender: AnyObject) {
