@@ -41,15 +41,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         super.viewDidLoad()
         topTextField.delegate = self
-        topTextField.textAlignment = .Center
+        
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.defaultTextAttributes = memeTextAttributes
 
         bottomTextField.delegate = self
-        bottomTextField.textAlignment = .Center
         bottomTextField.backgroundColor = UIColor.clearColor()
         bottomTextField.defaultTextAttributes = memeTextAttributes
         // Do any additional setup after loading the view, typically from a nib.
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -138,11 +139,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePickerView.transform = CGAffineTransformMakeScale(-1, 1)
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func placeholderText(){

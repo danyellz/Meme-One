@@ -17,7 +17,18 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        if memes.count == 0{
+            newMemeAlert()
+        }
         tableView!.reloadData()
+    }
+    
+    func newMemeAlert(){
+        let alert = UIAlertView()
+        alert.title = "Woops!"
+        alert.message = "It looks like you haven't created any Memes just yet. Press '+' to start!"
+        alert.addButtonWithTitle("Ok")
+        alert.show()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,6 +43,8 @@ class MemeTableViewController: UITableViewController {
         cell.memeImageView?.image = meme.image
         cell.memeTopText?.text = meme.topText
         cell.memeBottomText?.text = meme.bottomText
+        
+        cell.memeImageView.contentScaleFactor = UITableViewAutomaticDimension
         
         return cell
     }

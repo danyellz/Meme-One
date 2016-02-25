@@ -54,15 +54,15 @@
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-55-srM">
-                                            <rect key="frame" x="14" y="8" width="293" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-55-srM">
+                                            <rect key="frame" x="0.0" y="8" width="600" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65E-yc-k6F">
-                                            <rect key="frame" x="14" y="90" width="293" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65E-yc-k6F">
+                                            <rect key="frame" x="0.0" y="90" width="600" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,13 +71,19 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstItem="kiE-55-srM" firstAttribute="top" secondItem="HVg-J2-wu6" secondAttribute="top" id="0OP-4D-rS1"/>
+                                        <constraint firstItem="kiE-55-srM" firstAttribute="leading" secondItem="65E-yc-k6F" secondAttribute="leading" id="5em-L7-EB9"/>
                                         <constraint firstItem="FLp-07-YhS" firstAttribute="bottom" secondItem="pUu-5s-o6i" secondAttribute="bottomMargin" id="Lv5-K2-CL1"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="HVg-J2-wu6" secondAttribute="trailing" id="Sej-X6-acV"/>
+                                        <constraint firstItem="kiE-55-srM" firstAttribute="leading" secondItem="pUu-5s-o6i" secondAttribute="leading" id="WMw-M4-uuv"/>
                                         <constraint firstItem="FLp-07-YhS" firstAttribute="leading" secondItem="pUu-5s-o6i" secondAttribute="leadingMargin" id="Xu6-1h-c52"/>
                                         <constraint firstItem="FLp-07-YhS" firstAttribute="top" secondItem="pUu-5s-o6i" secondAttribute="topMargin" id="Zzb-Kz-geW"/>
                                         <constraint firstItem="HVg-J2-wu6" firstAttribute="bottom" secondItem="pUu-5s-o6i" secondAttribute="bottomMargin" id="dYC-sd-kOV"/>
                                         <constraint firstItem="HVg-J2-wu6" firstAttribute="top" secondItem="pUu-5s-o6i" secondAttribute="topMargin" id="hke-Cn-zR6"/>
                                         <constraint firstItem="FLp-07-YhS" firstAttribute="trailing" secondItem="pUu-5s-o6i" secondAttribute="trailingMargin" id="mdO-GU-ZQR"/>
+                                        <constraint firstItem="kiE-55-srM" firstAttribute="trailing" secondItem="65E-yc-k6F" secondAttribute="trailing" id="oZu-Si-4cQ"/>
+                                        <constraint firstItem="65E-yc-k6F" firstAttribute="top" secondItem="kiE-55-srM" secondAttribute="bottom" constant="61" id="s0K-4R-JGQ"/>
+                                        <constraint firstItem="kiE-55-srM" firstAttribute="centerX" secondItem="HVg-J2-wu6" secondAttribute="centerX" id="tQ9-HJ-Q9s"/>
                                         <constraint firstItem="HVg-J2-wu6" firstAttribute="leading" secondItem="pUu-5s-o6i" secondAttribute="leadingMargin" id="zzT-lY-4NQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -429,48 +435,37 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pDm-cb-IV7">
-                            <size key="itemSize" width="150" height="150"/>
+                            <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MemeCollectionViewCell" reuseIdentifier="MemeCollectionViewCell" id="mKI-e5-W3l" customClass="MemeCollectionViewCell" customModule="Meme_One" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="150" height="150"/>
+                                <rect key="frame" x="0.0" y="64" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvb-Ya-TDN">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8IB-Ss-wzl">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGa-G0-0hh">
-                                            <rect key="frame" x="33" y="25" width="84" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-0b-E2k">
-                                            <rect key="frame" x="33" y="99" width="84" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="8IB-Ss-wzl" firstAttribute="trailing" secondItem="mKI-e5-W3l" secondAttribute="trailingMargin" constant="8" id="7iq-iN-hha"/>
+                                    <constraint firstItem="8IB-Ss-wzl" firstAttribute="leading" secondItem="mKI-e5-W3l" secondAttribute="leadingMargin" constant="-8" id="SQj-zE-fib"/>
+                                    <constraint firstItem="8IB-Ss-wzl" firstAttribute="bottom" secondItem="mKI-e5-W3l" secondAttribute="bottomMargin" constant="8" id="cVs-o4-rnD"/>
+                                    <constraint firstItem="8IB-Ss-wzl" firstAttribute="top" secondItem="mKI-e5-W3l" secondAttribute="topMargin" constant="-8" id="tAS-FE-GBT"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="memeBottomText" destination="Tdj-0b-E2k" id="sUH-wS-zi1"/>
-                                    <outlet property="memeImageView" destination="tvb-Ya-TDN" id="lKF-vo-cva"/>
-                                    <outlet property="memeTopText" destination="tGa-G0-0hh" id="Wzl-hY-mYe"/>
+                                    <outlet property="memeImageView" destination="8IB-Ss-wzl" id="ovq-T8-cIW"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

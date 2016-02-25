@@ -20,13 +20,12 @@ class MemeCollectionViewController: UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let spacing = CGFloat(2.0)
-        let width = (view.frame.size.width - (2 * spacing)) / 2.0
-        let height  = (view.frame.size.height - (2 * spacing)) / 3.25
+        let spacing = CGFloat(3.0)
+        let width = (view.frame.size.width - (2 * spacing)) / 3.0
         
-        flowLayout.minimumInteritemSpacing = spacing
-        flowLayout.minimumLineSpacing = spacing
-        flowLayout.itemSize = CGSizeMake(width, height)
+        flowLayout.minimumInteritemSpacing = 1.0
+        flowLayout.minimumLineSpacing = 1.0
+        flowLayout.itemSize = CGSizeMake(width, width)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,8 +43,6 @@ class MemeCollectionViewController: UICollectionViewController{
         cell.memeImageView?.image = meme.image
         cell.memeTopText?.text = meme.topText
         cell.memeBottomText?.text = meme.bottomText
-        
-        cell.memeImageView.contentMode = .ScaleAspectFill
         
         cell.layer.cornerRadius = cell.bounds.size.width / 2
         cell.layer.borderWidth = 2
