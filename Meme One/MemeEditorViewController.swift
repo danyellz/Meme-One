@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet var blueSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
@@ -35,9 +35,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         
-        self.redSlider.thumbTintColor = UIColor.clearColor()
-        self.greenSlider.thumbTintColor = UIColor.clearColor()
-        self.blueSlider.thumbTintColor = UIColor.clearColor()
+        redSlider.thumbTintColor = UIColor.clearColor()
+        greenSlider.thumbTintColor = UIColor.clearColor()
+        blueSlider.thumbTintColor = UIColor.clearColor()
         
         super.viewDidLoad()
         topTextField.delegate = self
@@ -56,8 +56,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         placeholderText()
         imagePicker.enabled  = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        self.subscribetoKeyBoardNotifs()
-        self.unsubscribeToKeyBoardNotifications()
+        subscribetoKeyBoardNotifs()
+        unsubscribeToKeyBoardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -85,8 +85,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         textField.endEditing(true)
-        self.unsubscribeToKeyBoardNotifications()
-        self.view.frame.origin.y = 0
+        unsubscribeToKeyBoardNotifications()
+        view.frame.origin.y = 0
         return true
     }
     
@@ -98,13 +98,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder(){
-            self.view.frame.origin.y -=  getKeyBoardHeight(notification)
+            view.frame.origin.y -=  getKeyBoardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification){
         if bottomTextField.isFirstResponder(){
-            self.view.frame.origin.y += getKeyBoardHeight(notification)
+            view.frame.origin.y += getKeyBoardHeight(notification)
         }
     }
     
@@ -135,7 +135,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            self.imagePickerView.image = image
+            imagePickerView.image = image
+            imagePickerView.contentMode = .ScaleAspectFit
             imagePickerView.transform = CGAffineTransformMakeScale(-1, 1)
         }
         
@@ -217,11 +218,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityVC.completionWithItemsHandler = {activity, success, items, error in
             if success{
                 self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
         self.presentViewController(activityVC, animated: true, completion: nil)
         print("\(generateMemedImage()) was sent!")
+        print (memes.count)
     }
     
     @IBAction func cancelMemeButton(sender: AnyObject) {
@@ -230,7 +232,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.text = ""
         bottomTextField.text = ""
         placeholderText()
-        self.unsubscribeToKeyBoardNotifications()
+        unsubscribeToKeyBoardNotifications()
     }
 }
 

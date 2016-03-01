@@ -32,29 +32,34 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell") as! MemeTableViewCell!
-        let meme = self.memes[indexPath.row]
+        let meme = memes[indexPath.row]
         
         cell.memeImageView?.image = meme.image
         cell.memeTopText?.text = meme.topText
         cell.memeBottomText?.text = meme.bottomText
-        
-        cell.memeImageView.contentScaleFactor = UITableViewAutomaticDimension
+        cell.memeImageView.contentMode = .ScaleAspectFill
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView") as! MemeDetailView
-        detailViewController.meme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailViewController, animated: true)
+        let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView") as! MemeDetailView
+        detailViewController.meme = memes[indexPath.row]
+        navigationController!.pushViewController(detailViewController, animated: true)
     }
     
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            memes.removeAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//        }
+//    }
     
     
     
