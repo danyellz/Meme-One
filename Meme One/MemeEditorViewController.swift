@@ -34,20 +34,23 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         redSlider.thumbTintColor = UIColor.clearColor()
         greenSlider.thumbTintColor = UIColor.clearColor()
         blueSlider.thumbTintColor = UIColor.clearColor()
         
-        super.viewDidLoad()
+        formatTextFields()
+    }
+    
+    func formatTextFields(){
         topTextField.delegate = self
+        bottomTextField.delegate = self
+        
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
         
         topTextField.backgroundColor = UIColor.clearColor()
-        topTextField.defaultTextAttributes = memeTextAttributes
-
-        bottomTextField.delegate = self
         bottomTextField.backgroundColor = UIColor.clearColor()
-        bottomTextField.defaultTextAttributes = memeTextAttributes
         // Do any additional setup after loading the view, typically from a nib.
         topTextField.textAlignment = .Center
         bottomTextField.textAlignment = .Center
@@ -98,13 +101,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder(){
-            view.frame.origin.y -=  getKeyBoardHeight(notification)
+            view.frame.origin.y = getKeyBoardHeight(notification) * -1
         }
     }
     
     func keyboardWillHide(notification: NSNotification){
         if bottomTextField.isFirstResponder(){
-            view.frame.origin.y += getKeyBoardHeight(notification)
+            view.frame.origin.y = 0
         }
     }
     
@@ -119,17 +122,17 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
     @IBAction func pickImage(sender: AnyObject) {
         
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(pickerController, animated: true, completion: nil)
-        
-    
+        pickAnImageType(.PhotoLibrary)
     }
+    
     @IBAction func pickCameraImage(sender: AnyObject) {
+        pickAnImageType(.Camera)
+    }
+    
+    func pickAnImageType(dataFrom: UIImagePickerControllerSourceType){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePicker.sourceType = dataFrom
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
@@ -193,8 +196,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func generateMemedImage() -> UIImage{
         removeMemeObjects()
         //Render entire view to one image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -233,6 +236,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.text = ""
         placeholderText()
         unsubscribeToKeyBoardNotifications()
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

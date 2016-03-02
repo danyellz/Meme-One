@@ -10,11 +10,15 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
     
+    var indexOfSelectedMeme: Int?
+    
     var memes: [Meme]!{
         let object  = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewWillAppear(animated: Bool) {
         if memes.count == 0{
@@ -54,12 +58,12 @@ class MemeTableViewController: UITableViewController {
         navigationController!.pushViewController(detailViewController, animated: true)
     }
     
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == UITableViewCellEditingStyle.Delete {
-//            memes.removeAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//        }
-//    }
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            appDelegate.memes.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
     
     
     
